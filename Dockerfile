@@ -39,6 +39,10 @@ ADD . /data/
 
 WORKDIR /data
 
+RUN mkdir -p /data/test_images
+
+ADD ./test_images/ /data/test_images/
+
 # force download of file if not provided by local cache
 RUN [[ ! -f /data/models/ColorizeArtistic_gen.pth ]] && wget -O /data/models/ColorizeArtistic_gen.pth https://data.deepai.org/deoldify/ColorizeArtistic_gen.pth
 RUN [[ ! -f /data/models/ColorizeVideo_gen.pth ]] && wget -O /data/models/ColorizeVideo_gen.pth https://data.deepai.org/deoldify/ColorizeVideo_gen.pth
